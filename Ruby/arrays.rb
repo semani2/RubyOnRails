@@ -26,6 +26,8 @@ array1.each do |num|
     print "#{num ** 2} "
 end
 
+puts("")
+
 array2 = array1.select { |num|
     num.odd?
 }
