@@ -1,4 +1,7 @@
+require_relative 'auth'
+
 class Student
+  include Auth
   attr_accessor :first_name, :last_name, :email, :username
   attr_reader :password
 
@@ -18,41 +21,6 @@ class Student
 
   end
 
-  # # Setter method
-  # def first_name=(name)
-  #   @first_name = name
-  # end
-  #
-  # def last_name=(name)
-  #   @last_name = name
-  # end
-  #
-  # def email=(email)
-  #   @email = email
-  # end
-  #
-  # def username(username)
-  #   @username = username
-  # end
-  #
-  # def password(password)
-  #   password = password
-  # end
-  #
-  # # Getter Methods
-  # def first_name
-  #   @first_name
-  # end
-  #
-  # def last_name
-  #   @last_name
-  # end
-  #
-  # def email
-  #   @email
-  # end
-
-
   def to_s
     "First name : #{@first_name}"
   end
@@ -63,5 +31,6 @@ sai = Student.new("Sai", "Emani", "semani",
                   "semani@email.com", "password1")
 
 print sai.first_name
-
+hashed_password = sai.create_hash_digest(sai.password)
+puts hashed_password
 
